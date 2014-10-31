@@ -61,8 +61,6 @@ public class GPUImageTwoPassTextureSamplingFilter extends GPUImageTwoPassFilter 
     
     protected void updateHorizontalTexelOffsets(float f) {
     		if(initialized) {
-        		Log.d("GENERATE", "Horizontal");
-
     			filterOne.setFloat(texelWidthOffsetLocationFilterOne, f / mOutputWidth);
         		filterOne.setFloat(texelHeightOffsetLocationFilterOne, 0);
     		}
@@ -70,8 +68,6 @@ public class GPUImageTwoPassTextureSamplingFilter extends GPUImageTwoPassFilter 
     
     protected void updateVerticalTexelOffsets(float f) {
     		if(initialized) {
-        		Log.d("GENERATE", "Vertical");
-
     			filterTwo.setFloat(texelWidthOffsetLocationFilterTwo, 0);
         		filterTwo.setFloat(texelHeightOffsetLocationFilterTwo, f / mOutputHeight);
     		}

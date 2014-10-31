@@ -1,10 +1,11 @@
 package jp.co.cyberagent.android.gpuimage;
 
-import org.bytedeco.javacpp.avutil;
-import org.bytedeco.javacpp.swresample;
+
+//import org.bytedeco.javacpp.avutil;
+//import org.bytedeco.javacpp.swresample;
 import org.bytedeco.javacv.FFmpegFrameRecorder;
-import org.bytedeco.javacv.Frame;
-import android.util.Log;
+//import org.bytedeco.javacv.Frame;
+
 
 import static org.bytedeco.javacpp.opencv_core.*;
 

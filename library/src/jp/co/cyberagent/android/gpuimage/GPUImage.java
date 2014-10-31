@@ -25,6 +25,7 @@ import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.graphics.Point;
 import android.hardware.Camera;
 import android.media.ExifInterface;
 import android.media.MediaScannerConnection;
@@ -398,21 +399,29 @@ public class GPUImage {
         } else {
             WindowManager windowManager = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
             Display display = windowManager.getDefaultDisplay();
-            return display.getWidth();
-            //return display.getSize(Point pt);
+            Point size = new Point();
+            display.getSize(size);
+            int width = size.x;
+            //return display.getWidth();
+            return width;
         }
     }
 
     private int getOutputHeight() {
         if (mRenderer != null && mRenderer.getFrameHeight() != 0) {
             return mRenderer.getFrameHeight();
-        } else if (mCurrentBitmap != null) {
+        } 
+        else if (mCurrentBitmap != null) {
             return mCurrentBitmap.getHeight();
-        } else {
-            WindowManager windowManager =
-                    (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
+        } 
+        else {
+            WindowManager windowManager = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
             Display display = windowManager.getDefaultDisplay();
-            return display.getHeight();
+            Point size = new Point();
+            display.getSize(size);
+            int height = size.y;
+            return height;
+            //return display.getHeight();
         }
     }
 
