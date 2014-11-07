@@ -213,14 +213,14 @@ public class GPUImage {
      * Start recording the current video.
      */
     public void startRecording(){
-    	mRenderer.startRecording();
+    		mRenderer.startRecording();
     }
     
     /**
      * Start recording the current video.
      */
     public void finishRecording(){
-    	mRenderer.stopRecording();
+    		mRenderer.stopRecording();
     }
 
     /**
@@ -274,7 +274,6 @@ public class GPUImage {
         if (mGlSurfaceView != null) {
             mRenderer.deleteImage();
             mRenderer.runOnDraw(new Runnable() {
-
                 @Override
                 public void run() {
                     synchronized(mFilter) {
@@ -464,7 +463,6 @@ public class GPUImage {
                             public void onScanCompleted(final String path, final Uri uri) {
                                 if (mListener != null) {
                                     mHandler.post(new Runnable() {
-
                                         @Override
                                         public void run() {
                                             mListener.onPictureSaved(uri);
@@ -484,7 +482,6 @@ public class GPUImage {
     }
 
     private class LoadImageUriTask extends LoadImageTask {
-
         private final Uri mUri;
 
         public LoadImageUriTask(GPUImage gpuImage, Uri uri) {
@@ -524,7 +521,6 @@ public class GPUImage {
     }
 
     private class LoadImageFileTask extends LoadImageTask {
-
         private final File mImageFile;
 
         public LoadImageFileTask(GPUImage gpuImage, File file) {
@@ -557,7 +553,6 @@ public class GPUImage {
     }
 
     private abstract class LoadImageTask extends AsyncTask<Void, Void, Bitmap> {
-
         private final GPUImage mGPUImage;
         private int mOutputWidth;
         private int mOutputHeight;
@@ -632,7 +627,6 @@ public class GPUImage {
             }
 
             if (mScaleType == ScaleType.CENTER_CROP) {
-                // Crop it
                 int diffWidth = newSize[0] - mOutputWidth;
                 int diffHeight = newSize[1] - mOutputHeight;
                 workBitmap = Bitmap.createBitmap(bitmap, diffWidth / 2, diffHeight / 2,

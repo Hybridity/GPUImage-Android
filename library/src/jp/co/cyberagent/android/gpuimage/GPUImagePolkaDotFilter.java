@@ -22,6 +22,7 @@
 package jp.co.cyberagent.android.gpuimage;
 
 import android.opengl.GLES20;
+import android.util.Log;
 /**
  * Applies a polkadot effect to the image.
  */
@@ -58,13 +59,13 @@ public class GPUImagePolkaDotFilter extends GPUImageFilter {
     private int aspectRatioUniform;
     private float mDot;
     private float mWidth;
-    private float aspactRatio;
+    private float aspectRatio;
     
     public GPUImagePolkaDotFilter() {
         super(NO_FILTER_VERTEX_SHADER, POLKA_DOT_FRAGMENT_SHADER);
         mDot = 0.5f;
         mWidth = 0.05f;
-        aspactRatio = 0.7f;
+        aspectRatio = 1.0f;
     }
 
     @Override
@@ -77,7 +78,9 @@ public class GPUImagePolkaDotFilter extends GPUImageFilter {
         
         setFractionalWidthOfAPixel(mWidth);              
         setDotScaling(mDot);  
-        setAspectRatio(aspactRatio);
+        setAspectRatio(aspectRatio);
+        Log.v("GENERATE_GPUIMAGE", "Width is  " + mOutputWidth);
+        Log.v("GENERATE_GPUIMAGE", "Height is  " + mOutputHeight);
     }
 
     public void setDotScaling(final float scale) {

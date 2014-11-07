@@ -102,8 +102,7 @@ public class GPUImageRenderer implements Renderer, PreviewCallback {
 	}
 
 	@Override
-	public void onSurfaceChanged(final GL10 gl, final int width,
-			final int height) {
+	public void onSurfaceChanged(final GL10 gl, final int width, final int height) {
 		mOutputWidth = width;
 		mOutputHeight = height;
 		GLES20.glViewport(0, 0, width, height);
@@ -121,9 +120,7 @@ public class GPUImageRenderer implements Renderer, PreviewCallback {
 
 		runAll(mRunOnDraw); // METHOD CALLED AFTER RELEASE BUG
 		// mFilter.draw
-
 		mFilter.onDraw(mGLTextureId, mGLCubeBuffer, mGLTextureBuffer);
-		
 		if (mSurfaceTexture != null) {
 			mSurfaceTexture.updateTexImage();
 		}

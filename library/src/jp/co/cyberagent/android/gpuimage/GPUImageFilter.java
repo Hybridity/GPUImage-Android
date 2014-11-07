@@ -18,6 +18,7 @@ package jp.co.cyberagent.android.gpuimage;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.graphics.Point;
 import android.graphics.PointF;
 import android.opengl.GLES20;
 
@@ -58,6 +59,7 @@ public class GPUImageFilter {
     protected int mGLAttribTextureCoordinate;
     protected int mOutputWidth;
     protected int mOutputHeight;
+    protected int inputRotation;
     private boolean mIsInitialized;
 
     public GPUImageFilter() {
@@ -100,7 +102,17 @@ public class GPUImageFilter {
         mOutputWidth = width;
         mOutputHeight = height;
     }
-
+    /*
+    public Point rotatedSize(Point sizeToRotate, int textureIndex) {
+    		Point rotatedSize = sizeToRotate;
+    		 if (GPUImageRotationSwapsWidthAndHeight(inputRotation))
+    	        {
+    	            rotatedSize.x = sizeToRotate.y;
+    	            rotatedSize.y = sizeToRotate.x;
+    	        }
+    	        return rotatedSize; 
+    }
+	*/
     public void onDraw(final int textureId, final FloatBuffer cubeBuffer,
                        final FloatBuffer textureBuffer) {
         GLES20.glUseProgram(mGLProgId);

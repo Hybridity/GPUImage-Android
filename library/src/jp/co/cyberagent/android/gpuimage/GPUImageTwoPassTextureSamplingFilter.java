@@ -32,6 +32,8 @@ public class GPUImageTwoPassTextureSamplingFilter extends GPUImageTwoPassFilter 
     int texelHeightOffsetLocationFilterTwo;
     GPUImageFilter filterOne, filterTwo;
     float ratio;
+    private float mTexelWidth;
+    private float mTexelHeight;
     Boolean initialized = false;
     
     @Override
@@ -89,10 +91,12 @@ public class GPUImageTwoPassTextureSamplingFilter extends GPUImageTwoPassFilter 
     }
 
 	public void setVerticalTexelSpacing(float f) {
-		updateVerticalTexelOffsets(f);
+		mTexelHeight = f;
+		updateVerticalTexelOffsets(mTexelHeight);
 	}
 
 	public void setHorizontalTexelSpacing(float f) {
-		updateHorizontalTexelOffsets(f);
+		mTexelWidth = f;
+		updateHorizontalTexelOffsets(mTexelWidth);
 	}
 }
